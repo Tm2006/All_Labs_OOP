@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// Класс исключений
+// РљР»Р°СЃСЃ РёСЃРєР»СЋС‡РµРЅРёР№
 class CustomException : public exception {
 private:
     string message;
