@@ -3,7 +3,7 @@
 #include "list.h"
 #include "stack.h"
 
-// Пример использования Stack<List<std::string>>
+// РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ Stack<List<std::string>>
 template<typename T>
 void demo(std::initializer_list<T> data) {
     Stack<List<T>> stack;
