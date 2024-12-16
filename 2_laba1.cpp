@@ -23,17 +23,17 @@ namespace containers {
         size_t _size;
         
     public:
-        // Конструктор по умолчанию
+        // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
         Queue() : _head(nullptr), _tail(nullptr), _size(0) {}
 
-        // Конструктор от std::initializer_list<T>
+        // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РѕС‚ std::initializer_list<T>
         Queue(std::initializer_list<T> initList) : Queue() {
             for (const T& item : initList) {
                 push_back(item);
             }
         }
 
-        // Конструктор копирования
+        // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
         Queue(const Queue& other) : Queue() {
             Node* current = other._head;
             while (current) {
@@ -42,7 +42,7 @@ namespace containers {
             }
         }
 
-        // Копирующий оператор присваивания
+        // РљРѕРїРёСЂСѓСЋС‰РёР№ РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
         Queue& operator=(const Queue& other) {
             if (this != &other) {
                 clear();
@@ -55,14 +55,14 @@ namespace containers {
             return *this;
         }
 
-        // Конструктор перемещения
+        // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ
         Queue(Queue&& other) noexcept : _head(other._head), _tail(other._tail), _size(other._size) {
             other._head = nullptr;
             other._tail = nullptr;
             other._size = 0;
         }
 
-        // Перемещающий оператор присваивания
+        // РџРµСЂРµРјРµС‰Р°СЋС‰РёР№ РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
         Queue& operator=(Queue&& other) noexcept {
             if (this != &other) {
                 clear();
@@ -76,12 +76,12 @@ namespace containers {
             return *this;
         }
 
-        // Деструктор
+        // Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
         ~Queue() {
             clear();
         }
 
-        // Метод добавления элемента в конец
+        // РњРµС‚РѕРґ РґРѕР±Р°РІР»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІ РєРѕРЅРµС†
         void push_back(const T& value) {
             Node* newNode = new Node(value);
             if (_tail == nullptr) {
@@ -95,7 +95,7 @@ namespace containers {
         }
 
 
-        // Метод удаления элемента из начала
+        // РњРµС‚РѕРґ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РёР· РЅР°С‡Р°Р»Р°
         void pop_front() {
             if (!_head) {
                 throw std::out_of_range("Queue is empty");
@@ -109,7 +109,7 @@ namespace containers {
             --_size;
         }
 
-        // Метод получения элемента по индексу
+        // РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
         T& operator[](size_t index) {
             if (index >= _size) {
                 throw std::out_of_range("Index out of range");
@@ -121,14 +121,14 @@ namespace containers {
             return current->value;
         }
 
-        // Метод очистки очереди
+        // РњРµС‚РѕРґ РѕС‡РёСЃС‚РєРё РѕС‡РµСЂРµРґРё
         void clear() {
             while (_head) {
                 pop_front();
             }
         }
 
-        // Метод получения размера очереди
+        // РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ СЂР°Р·РјРµСЂР° РѕС‡РµСЂРµРґРё
         size_t size() const {
             return _size;
         }
@@ -142,21 +142,21 @@ int main() {
     containers::Queue<double> doubleQueue = { 1.1, 2.2, 3.3 };
     containers::Queue<std::string> stringQueue = { "one", "two", "three" };
 
-    // Демонстрация работы с очередью int
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ СЂР°Р±РѕС‚С‹ СЃ РѕС‡РµСЂРµРґСЊСЋ int
     std::cout << "Int Queue: ";
     for (size_t i = 0; i < intQueue.size(); ++i) {
         std::cout << intQueue[i] << " ";
     }
     std::cout << std::endl;
 
-    // Демонстрация работы с очередью double
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ СЂР°Р±РѕС‚С‹ СЃ РѕС‡РµСЂРµРґСЊСЋ double
     std::cout << "Double Queue: ";
     for (size_t i = 0; i < doubleQueue.size(); ++i) {
         std::cout << doubleQueue[i] << " ";
     }
     std::cout << std::endl;
 
-    // Демонстрация работы с очередью string
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ СЂР°Р±РѕС‚С‹ СЃ РѕС‡РµСЂРµРґСЊСЋ string
     std::cout << "String Queue: ";
     for (size_t i = 0; i < stringQueue.size(); ++i) {
         std::cout << stringQueue[i] << " ";
