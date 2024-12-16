@@ -1,6 +1,6 @@
 #pragma once
 
-// Реализация двунаправленного списка
+// Р РµР°Р»РёР·Р°С†РёСЏ РґРІСѓРЅР°РїСЂР°РІР»РµРЅРЅРѕРіРѕ СЃРїРёСЃРєР°
 template <typename T>
 class List {
 private:
@@ -19,7 +19,7 @@ private:
 public:
 	List() : _head(nullptr), _tail(nullptr), _size(0) {}
 
-	// Конструктор от initializer_list
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РѕС‚ initializer_list
 	List(std::initializer_list<T> initList) : List()  {
 		for (const auto& value : initList) {
 			push_back(value);
